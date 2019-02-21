@@ -10,12 +10,8 @@ let touchsurface = document.querySelector('.application'),
 
   displayElement.querySelector('.response').innerHTML = `<span style="color:yellow">no</span> swipe!`
 
-function handleswipe(validSwipe, direction) {
-  if (validSwipe)
-    displayElement.querySelector('.response').innerHTML = `<span style="color:yellow">${direction}</span> swipe!`
-  else {
-    displayElement.querySelector('.response').innerHTML = 'Condition for swipe not met yet'
-  }
+function handleswipe(direction) {
+  displayElement.querySelector('.response').innerHTML = `<span style="color:yellow">${direction}</span> swipe!`
 }
 
 touchsurface.addEventListener('touchstart', function (e) {
@@ -50,6 +46,6 @@ touchsurface.addEventListener('touchend', function (e) {
   console.log(touchobj.pageX < startX)
   console.log(touchobj.pageX > startX)
   console.log(left, right, left && !right)
-  handleswipe(validSwipe, direction)
+  handleswipe(direction)
   e.preventDefault()
 }, false)
