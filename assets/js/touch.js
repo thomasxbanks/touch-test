@@ -8,7 +8,7 @@ let touchsurface = document.querySelector('.application'),
   elapsedTime,
   startTime
 
-  displayElement.querySelector('.response').innerHTML = `<span style="color:yellow">no</span> swipe!`
+displayElement.querySelector('.response').innerHTML = `<span style="color:yellow">no</span> swipe!`
 
 function handleswipe(direction) {
   displayElement.querySelector('.response').innerHTML = `<span style="color:yellow">${direction}</span> swipe!`
@@ -38,7 +38,7 @@ touchsurface.addEventListener('touchend', function (e) {
   dist = touchobj.pageX - startX // get total dist traveled by finger while in contact with surface
   elapsedTime = new Date().getTime() - startTime // get time elapsed
   // check that elapsed time is within specified, horizontal dist traveled >= threshold, and vertical dist traveled <= 100
-  var validSwipe = (elapsedTime <= allowedTime && dist >= threshold && Math.abs(touchobj.pageY - startY) <= 100)
+  var validSwipe = (dist >= threshold)
   var left = touchobj.pageX < startX
   var right = touchobj.pageX > startX
   var direction = (left && !right) ? 'left' : 'right'
@@ -46,6 +46,8 @@ touchsurface.addEventListener('touchend', function (e) {
   console.log(touchobj.pageX < startX)
   console.log(touchobj.pageX > startX)
   console.log(left, right, left && !right)
-  handleswipe(direction)
+  if (validSwipe) {
+    handleswipe(direction)
+  }
   e.preventDefault()
 }, false)
