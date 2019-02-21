@@ -266,4 +266,4 @@ const randomColor = () => {
   let index = ~~(now / 6)
   return colors[index - 1]
 }
-document.getElementById('displayElement').style.background = randomColor()
+document.querySelector('.fullscreen-btn').style.background = randomColor()
