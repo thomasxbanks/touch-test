@@ -2,7 +2,8 @@ let touchsurface = document.querySelector('.application'),
   startX,
   startY,
   distance,
-  threshold = 150
+  threshold = 150,
+  touchobj
 
 function handleswipe(distance) {
   var validSwipe = (distance >= threshold)
@@ -16,7 +17,7 @@ function handleswipe(distance) {
 }
 
 touchsurface.addEventListener('touchstart', function (e) {
-  var touchobj = e.changedTouches[0]
+  touchobj = e.changedTouches[0]
   distance = 0
   startX = touchobj.pageX
   startY = touchobj.pageY
@@ -28,7 +29,7 @@ touchsurface.addEventListener('touchmove', function (e) {
 }, false)
 
 touchsurface.addEventListener('touchend', function (e) {
-  var touchobj = e.changedTouches[0]
+  touchobj = e.changedTouches[0]
   handleswipe(touchobj.pageX - startX)
   e.preventDefault()
 }, false)
