@@ -45,7 +45,11 @@ touchsurface.addEventListener('touchend', function (e) {
   console.log(touchobj.pageX, startX)
   console.log(touchobj.pageX < startX)
   console.log(touchobj.pageX > startX)
-  console.log(left, right, left && !right)
+  console.table({
+    left: left, 
+    right: right, 
+    condition: left && !right
+  })
   if (validSwipe) {
     handleswipe(direction)
   }
