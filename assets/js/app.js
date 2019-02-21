@@ -255,3 +255,15 @@ if (screenSaverTrigger) {
     onSlideAnimation(currentElement, targetElement)
   })
 }
+
+// @TODO: Remove development scirpts prior to deployment
+const randomColor = () => {
+  const colors = [
+    'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'hotpink', 'dodgerblue', 'sienna', 'tomato', 'wheat'
+  ]
+  let d = new Date()
+  let now = d.getSeconds()
+  let index = ~~(now / 6)
+  return colors[index - 1]
+}
+document.getElementById('displayElement').style.background = randomColor()
