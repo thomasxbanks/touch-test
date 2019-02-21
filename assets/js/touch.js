@@ -10,6 +10,12 @@ function handleswipe(distance) {
   var right = touchobj.pageX > startX
   var direction = (left && !right) ? 'left' : 'right'
   var validSwipe = (distance >= threshold[direction])
+  console.table({
+    touchobjPageX: touchobj.pageX,
+    startX: startX,
+    condition: right,
+    direction: direction
+  })
   if (validSwipe) {
     console.log(`valid ${direction} swipe!`)
     console.log('handle page transitions here')
