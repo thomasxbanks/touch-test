@@ -42,7 +42,7 @@ touchsurface.addEventListener('touchend', function (e) {
   dist = touchobj.pageX - startX // get total dist traveled by finger while in contact with surface
   elapsedTime = new Date().getTime() - startTime // get time elapsed
   // check that elapsed time is within specified, horizontal dist traveled >= threshold, and vertical dist traveled <= 100
-  var validSwipe = (elapsedTime <= allowedTime && dist >= threshold && Math.abs(touchobj.pageY - startY) <= 1080)
+  var validSwipe = (elapsedTime <= allowedTime && dist >= threshold && Math.abs(touchobj.pageY - startY) <= 100)
   var left = touchobj.pageX < startX
   var right = touchobj.pageX > startX
   var direction = (left && !right) ? 'left' : 'right'
