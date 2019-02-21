@@ -1,0 +1,60 @@
+.navigation {
+  width: 240px;
+  height: 57px;
+  position: absolute;
+  bottom: $bottomMargin;
+  left: calc(50% - 120px);
+  background: url(../img/button/navigation.png);
+
+  &__btns {
+    position: relative;
+    list-style: none;
+  }
+
+  &__btn {
+    width: 50px;
+    height: 57px;
+    position: absolute;
+    text-indent: -9999px;
+    transition: background-color ease 300ms;
+  }
+
+  &__btn--left {
+    left: 0;
+  }
+
+  &__btn--hide {
+    background-color: #fff;
+  }
+
+  &__btn--navigation {
+    left: 58px;
+
+    &-selected {
+      background: url(../img/button/navigation.png);
+      background-position: -58px -63px;
+    }
+  }
+
+  &__btn--refs {
+    left: 131px;
+
+    &-selected {
+      background: url(../img/button/navigation.png);
+      background-position: -131px -63px;
+    }
+  }
+
+  &__btn--pi {
+    left: 203px;
+
+    &-selected {
+      background: url(../img/button/navigation.png);
+      background-position: -202px -63px;
+    }
+  }
+
+  &__btn--right {
+    right: 0;
+  }
+}

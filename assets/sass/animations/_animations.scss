@@ -1,0 +1,165 @@
+.moveToLeft {
+  animation: moveToLeft .8s ease both;
+}
+
+@keyframes moveToLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.scaleUp {
+  animation: scaleUp .8s ease both;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.moveOffScreenLeft {
+  animation: moveOffScreenLeft 1s ease both;
+}
+
+@keyframes moveOffScreenLeft {
+  to {
+    left: -100%;
+  }
+}
+
+.moveOnScreenLeft {
+  animation: moveOnScreenLeft 1s ease both;
+}
+
+@keyframes moveOnScreenLeft {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+.moveOnScreenRight {
+  animation: moveOnScreenRight 1s ease both;
+}
+
+@keyframes moveOnScreenRight {
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+.moveOffScreenRight {
+  animation: moveOffScreenRight 1s ease both;
+}
+
+@keyframes moveOffScreenRight {
+  to {
+    left: 100%;
+  }
+}
+
+.moveOnScreen {
+  animation: moveOnScreen 1s ease both;
+}
+
+@keyframes moveOnScreen {
+  to {
+    left: 0;
+  }
+}
+
+.bounceUp {
+  animation: bounceUp .2s ease both;
+}
+
+@keyframes bounceUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes clickPrompt {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes clickPromptRipple {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(0.75);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shadowpulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.25);
+  }
+}

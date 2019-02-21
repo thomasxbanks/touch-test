@@ -1,0 +1,44 @@
+.rotation-container {
+  overflow: hidden;
+  transition: transform cubic-bezier(.46, -0.28, .41, 1.23) 1.3s;
+  transform-origin: 50% 50%;
+
+  &.screen-rotated {
+    transform: rotate3d(0, 0, 1, 180deg);
+  }
+
+}
+
+.rotate-screen-button {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  z-index: 55000;
+  margin: 1rem;
+  background: none;
+  width: 4rem;
+  height: 4rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.container {
+  @extend %full-screen;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.application {
+  @extend %full-screen;
+  opacity: 0;
+  transform: translate(100%);
+  position: absolute;
+  overflow: hidden;
+}

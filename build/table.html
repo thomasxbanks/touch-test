@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Xtandi</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/xtandi.min.css" />
+</head>
+
+<body data-environment="table">
+  <div class="fullscreen-btn">
+    <img class="jsFullscreenBtn" src="assets/img/button/fullscreen_button.png" />
+  </div>
+  <section class="screensaver jsScreensaver" data-id="0" data-name="screensaver">
+    <div class="screensaver_container jsScreenSaverTable" data-active="false">
+      <button class="image_container jsScreenSaverTableTrigger"></button>
+    </div>
+    <div class="welcome-screen_container">
+      <button class="jsScreensaverTrigger">
+        <div class="launch-app-icon">
+          <img src="assets/img/button/button-launch-application-icon.png" role="presentation" />
+        </div>
+        <img src="assets/img/button/button-launch-application.png" alt="Select to start" />
+      </button>
+    </div>
+  </section>
+  <button class="rotate-screen-button jsRotateScreen">
+    <img src="assets/img/button/button-rotate.png" />
+  </button>
+  <div class="container rotation-container">
+    <div class="application">
+      <section class="slides">
+        <article class="slide slide-1 moveOffScreenLeft" data-id="1" data-name="homepage">
+          <header class="title_container">
+            <img src="assets/img/title/homepage-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/homepage-background.png" />
+          </div>
+          <footer class="slide__footer">
+            <nav class="slide__modal-triggers_container">
+              <ul>
+                <li>
+                  <button data-modal="adverse-events">
+                    <img class="icon" src="assets/img/button/button-plus.png" alt="+" /><img src="assets/img/button/button-text-adverse_event_reporting.png"
+                      alt="" />
+                  </button>
+                </li>
+                <li>
+                  <button data-modal="indications-list">
+                    <img class="icon" src="assets/img/button/button-plus.png" alt="+" /><img src="assets/img/button/button-text-indications_list.png"
+                      alt="" />
+                  </button>
+                </li>
+              </ul>
+            </nav>
+            <img src="assets/img/background/homepage-footnote.png" />
+          </footer>
+        </article>
+
+        <article class="slide slide-2 moveOffScreenRight" data-id="2" data-name="menu">
+          <span class="slide__click-prompt"></span>
+          <header class="title_container">
+            <img src="assets/img/title/menu-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/menu-background.png" />
+          </div>
+          <nav class="menu_container">
+            <ul>
+              <li>
+                <button class="jsSlideNavBtn" data-id="2" data-name="crpc">
+                  <img class="button_text" src="assets/img/button/navigation/castration-resistant-prostate-cancer-crpc-continuum.png"
+                    alt="Castration-resistant prostate cancer (CRPC) continuum" />
+                </button>
+              </li>
+              <li>
+                <button class="jsSlideNavBtn" data-id="9" data-name="subsequent-treatment">
+                  <img class="button_text" src="assets/img/button/navigation/subsequent-treatment.png" alt="Subsequent treatment" />
+                </button>
+              </li>
+              <li>
+                <button class="jsSlideNavBtn" data-id="7" data-name="prevail">
+                  <img class="button_text" src="assets/img/button/navigation/prevail-trial-design.png" alt="PREVAIL trial design" />
+                </button>
+              </li>
+              <li>
+                <button class="jsSlideNavBtn" data-id="4" data-name="prosper">
+                  <img class="button_text" src="assets/img/button/navigation/prosper-trial-design.png" alt="PROSPER trial design" />
+                </button>
+              </li>
+              <li>
+                <button class="jsSlideNavBtn" data-id="1" data-name="safety-profile">
+                  <img class="button_text" src="assets/img/button/navigation/safety-profile.png" alt="Safety profile" />
+                </button>
+              </li>
+              <li>
+                <button class="jsSlideNavBtn" data-id="3" data-name="high-risk">
+                  <img class="button_text" src="assets/img/button/navigation/identifying-high-risk-nonmetastatic-crpc-patients.png"
+                    alt="Identifying high-risk nonmetastatic CRPC patients" />
+                </button>
+              </li>
+              <li>
+                <button class="jsSlideNavBtn" data-id="7" data-name="overall-survival">
+                  <img class="button_text" src="assets/img/button/navigation/overall-survival.png" alt="Overall survival" />
+                </button>
+              </li>
+              <li>
+                <button class="jsSlideNavBtn" data-id="8" data-name="prostate-specific">
+                  <img class="button_text" src="assets/img/button/navigation/prostate-specific-antigen-psa-progression.png"
+                    alt="Prostate-specific antigen (PSA) progression" />
+                </button>
+              </li>
+              <li>
+                <button class="jsSlideNavBtn" data-id="6" data-name="disease-progression">
+                  <img class="button_text" src="assets/img/button/navigation/disease-progression.png" alt="Disease progression" />
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </article>
+
+        <article class="slide slide-3 moveOffScreenRight" data-id="3" data-name="crpc">
+          <header class="title_container">
+            <img src="assets/img/title/crpc-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/crpc-background.png" />
+          </div>
+          <footer class="slide__footer">
+            <div class="slide__modal-triggers_container">
+              <button data-modal="crpc-abbreviations">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+            </div>
+          </footer>
+        </article>
+
+        <article class="slide slide-4 moveOffScreenRight" data-id="4" data-name="high-risk">
+          <header class="title_container">
+            <img src="assets/img/title/high-risk-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/high-risk-background.png" />
+          </div>
+          <footer class="slide__footer">
+            <div class="slide__modal-triggers_container">
+              <button data-modal="high-risk-abbreviations">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+            </div>
+          </footer>
+        </article>
+
+        <article class="slide slide-5 moveOffScreenRight" data-id="5" data-name="prosper">
+          <header class="title_container">
+            <img src="assets/img/title/prosper-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/prosper-background.png" />
+          </div>
+          <footer class="slide__footer">
+            <div class="slide__modal-triggers_container">
+              <button data-modal="prosper-information">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+            </div>
+          </footer>
+        </article>
+
+        <article class="slide slide-6 moveOffScreenRight" data-id="6" data-name="prevail">
+          <header class="title_container">
+            <img src="assets/img/title/prevail-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/prevail-background.png" />
+          </div>
+          <footer class="slide__footer">
+            <div class="slide__modal-triggers_container">
+              <button data-modal="prevail-information">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+            </div>
+          </footer>
+        </article>
+
+        <article class="slide slide-7 moveOffScreenRight" data-id="7" data-name="disease-progression">
+          <header class="title_container">
+            <img src="assets/img/title/disease-progression-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img data-tab="disease-progression-1" data-active="true" src="assets/img/background/disease-progression-background-prosper-graph.png" />
+            <img data-tab="disease-progression-2" data-active="false" src="assets/img/background/disease-progression-background-prevail-graph.png" />
+          </div>
+          <aside class="slide__tabs-controls">
+            <img class="icon" role="presentation" src="assets/img/button/tap-icon-small.png" alt="Make a selection" />
+            <button class="tab-control-button" data-tab="disease-progression-1" data-active="true">
+              <img class="button_text" src="assets/img/button/tab-button-prosper.png" />
+            </button>
+            <button class="tab-control-button" data-tab="disease-progression-2" data-active="false">
+              <img class="button_text" src="assets/img/button/tab-button-prevail.png" />
+            </button>
+          </aside>
+          <footer class="slide__footer">
+            <div class="slide__modal-triggers_container">
+              <button data-tab="disease-progression-1" data-active="true" data-modal="disease-progression-prosper">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+              <button data-tab="disease-progression-2" data-active="false" data-modal="disease-progression-prevail">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+            </div>
+          </footer>
+        </article>
+
+        <article class="slide slide-8 moveOffScreenRight" data-id="8" data-name="overall-survival">
+          <header class="title_container">
+            <img src="assets/img/title/overall-survival-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/overall-survival-background.png" />
+          </div>
+          <footer class="slide__footer">
+            <div class="slide__modal-triggers_container">
+              <button data-modal="overall-survival">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+            </div>
+          </footer>
+        </article>
+
+        <article class="slide slide-9 moveOffScreenRight" data-id="9" data-name="prostate-specific">
+          <header class="title_container">
+            <img src="assets/img/title/prostate-specific-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img data-tab="prostate-specific-1" data-active="true" src="assets/img/background/prostate-specific-background-1.png" />
+            <img data-tab="prostate-specific-2" data-active="false" src="assets/img/background/prostate-specific-background-2.png" />
+          </div>
+          <aside class="slide__tabs-controls">
+            <img class="icon" role="presentation" src="assets/img/button/tap-icon-small.png" alt="Make a selection" />
+            <button class="tab-control-button" data-tab="prostate-specific-1" data-active="true">
+              <img class="button_text" src="assets/img/button/tab-button-prosper.png" />
+            </button>
+            <button class="tab-control-button" data-tab="prostate-specific-2" data-active="false">
+              <img class="button_text" src="assets/img/button/tab-button-prevail.png" />
+            </button>
+          </aside>
+          <footer class="slide__footer">
+            <div class="slide__modal-triggers_container">
+              <button data-tab="prostate-specific-1" data-active="true" data-modal="prostate-specific-1">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+              <button data-tab="prostate-specific-2" data-active="false" data-modal="prostate-specific-2">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+            </div>
+          </footer>
+        </article>
+
+        <article class="slide slide-10 moveOffScreenRight" data-id="10" data-name="subsequent-treatment">
+          <header class="title_container">
+            <img src="assets/img/title/subsequent-treatment-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img data-tab="subsequent-treatment-1" data-active="true" src="assets/img/background/subsequent-treatment-background-1.png" />
+            <img data-tab="subsequent-treatment-2" data-active="false" src="assets/img/background/subsequent-treatment-background-2.png" />
+          </div>
+          <aside class="slide__tabs-controls">
+            <img class="icon" role="presentation" src="assets/img/button/tap-icon-small.png" alt="Make a selection" />
+            <button class="tab-control-button" data-tab="subsequent-treatment-1" data-active="true">
+              <img class="button_text" src="assets/img/button/tab-button-prosper.png" />
+            </button>
+            <button class="tab-control-button" data-tab="subsequent-treatment-2" data-active="false">
+              <img class="button_text" src="assets/img/button/tab-button-prevail.png" />
+            </button>
+          </aside>
+          <footer class="slide__footer">
+            <div class="slide__modal-triggers_container">
+              <button data-tab="subsequent-treatment-1" data-active="true" data-modal="subsequent-treatment-1">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+              <button data-tab="subsequent-treatment-2" data-active="false" data-modal="subsequent-treatment-2">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+            </div>
+          </footer>
+        </article>
+
+        <article class="slide slide-11 moveOffScreenRight" data-id="11" data-name="subsequent-treatment-pt2">
+          <header class="title_container">
+            <img src="assets/img/title/subsequent-treatment-pt2-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img data-tab="subsequent-treatment-pt2-1" data-active="true" src="assets/img/background/subsequent-treatment-pt2-background-1.png" />
+            <img data-tab="subsequent-treatment-pt2-2" data-active="false" src="assets/img/background/subsequent-treatment-pt2-background-2.png" />
+          </div>
+          <aside class="slide__tabs-controls">
+            <img class="icon" role="presentation" src="assets/img/button/tap-icon-small.png" alt="Make a selection" />
+            <button class="tab-control-button" data-tab="subsequent-treatment-pt2-1" data-active="true">
+              <img class="button_text" src="assets/img/button/tab-button-prosper.png" />
+            </button>
+            <button class="tab-control-button" data-tab="subsequent-treatment-pt2-2" data-active="false">
+              <img class="button_text" src="assets/img/button/tab-button-prevail.png" />
+            </button>
+          </aside>
+          <footer class="slide__footer">
+            <div class="slide__modal-triggers_container">
+              <button data-tab="subsequent-treatment-pt2-1" data-active="true" data-modal="subsequent-treatment-pt2-1">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+              <button data-tab="subsequent-treatment-pt2-2" data-active="false" data-modal="subsequent-treatment-pt2-2">
+                <img src="assets/img/button/button-plus.png" alt="+" />
+              </button>
+            </div>
+          </footer>
+        </article>
+
+        <article class="slide slide-12 moveOffScreenRight" data-id="12" data-name="safety-profile">
+          <header class="title_container">
+            <img src="assets/img/title/safety-profile-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/safety-profile-background.png" />
+          </div>
+        </article>
+
+        <article class="slide slide-13 moveOffScreenRight" data-id="13" data-name="special-warnings-1">
+          <header class="title_container">
+            <img src="assets/img/title/special-warnings-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/special-warnings-1-background.png" />
+          </div>
+        </article>
+        <article class="slide slide-14 moveOffScreenRight" data-id="14" data-name="special-warnings-2">
+          <header class="title_container">
+            <img src="assets/img/title/special-warnings-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/special-warnings-2-background.png" />
+          </div>
+        </article>
+        <article class="slide slide-15 moveOffScreenRight" data-id="15" data-name="special-warnings-3">
+          <header class="title_container">
+            <img src="assets/img/title/special-warnings-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/special-warnings-3-background.png" />
+          </div>
+        </article>
+
+        <article class="slide slide-16 moveOffScreenRight" data-id="16" data-name="choose-xtandi">
+          <header class="title_container">
+            <img src="assets/img/title/choose-xtandi-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/choose-xtandi-background.png" />
+          </div>
+        </article>
+
+        <article class="slide slide-17 moveOffScreenRight" data-id="17" data-name="references">
+          <header class="title_container">
+            <img src="assets/img/title/references-title.png" class="slide__title" />
+          </header>
+          <div class="slide__graphic">
+            <img src="assets/img/background/references-background.png" />
+          </div>
+        </article>
+
+        <article class="slide slide-18 moveOffScreenRight" data-id="18" data-name="aer">
+          <div class="slide__graphic">
+            <img src="assets/img/background/aer-background.png" alt="" />
+          </div>
+        </article>
+      </section>
+
+      <div class="navigation">
+        <ul class="navigation__btns">
+          <li class="navigation__btn navigation__btn--left navigation__btn--hide jsPrevSlide">
+            Prev Slide
+          </li>
+          <li class="navigation__btn navigation__btn--navigation jsNavSlides">
+            Slide Navigation
+          </li>
+          <li class="navigation__btn navigation__btn--refs jsNavRefs">
+            References
+          </li>
+          <!-- <li class="navigation__btn navigation__btn--pi jsNavPi">PI</li> -->
+          <li class="navigation__btn navigation__btn--right jsNextSlide">
+            Next Slide
+          </li>
+        </ul>
+      </div>
+      <img src="assets/img/global/logo.png" class="logo" />
+      <img src="assets/img/button/home_btn.png" class="home-btn home-btn--hide jsHome" />
+    </div>
+  </div>
+  <!-- Modal content START -->
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="adverse-events">
+    <img src="assets/img/modal/modal-adverse_event_reporting.png" />
+  </div>
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="indications-list">
+    <img src="assets/img/modal/modal-indications_list.png" />
+  </div>
+
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="crpc-abbreviations">
+    <img src="assets/img/modal/modal-crpc_abbreviations.png" />
+  </div>
+
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="high-risk-abbreviations">
+    <img src="assets/img/modal/modal-high-risk_abbreviations.png" />
+  </div>
+
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="prosper-information">
+    <img src="assets/img/modal/modal-prosper_information.png" />
+  </div>
+
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="prevail-information">
+    <img src="assets/img/modal/modal-prevail_information.png" />
+  </div>
+
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="disease-progression-prosper">
+    <img src="assets/img/modal/modal-disease_progression-prosper.png" />
+  </div>
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="disease-progression-prevail">
+    <img src="assets/img/modal/modal-disease_progression-prevail.png" />
+  </div>
+
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="overall-survival">
+    <img src="assets/img/modal/modal-overall_survival.png" />
+  </div>
+
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="prostate-specific-1">
+    <img src="assets/img/modal/modal-prostate_specific_1.png" />
+  </div>
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="prostate-specific-2">
+    <img src="assets/img/modal/modal-prostate_specific_2.png" />
+  </div>
+
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="subsequent-treatment-1">
+    <img src="assets/img/modal/modal-subsequent_treatment_1.png" />
+  </div>
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="subsequent-treatment-2">
+    <img src="assets/img/modal/modal-subsequent_treatment_2.png" />
+  </div>
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="subsequent-treatment-pt2-1">
+    <img src="assets/img/modal/modal-subsequent_treatment_pt2_1.png" />
+  </div>
+  <div class="slide__modal__content rotation-container" data-active="false" data-target="subsequent-treatment-pt2-2">
+    <img src="assets/img/modal/modal-subsequent_treatment_pt2_2.png" />
+  </div>
+  <!-- Modal content END -->
+  <script src="assets/js/xtandi.min.js"></script>
+</body>
+
+</html>

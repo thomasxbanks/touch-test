@@ -1,0 +1,135 @@
+@keyframes pulseIcon {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.screensaver {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 65000;
+  @extend %full-screen;
+
+  &--hide {
+    transform: translateY(-100%);
+  }
+
+  .screensaver_container,
+  .welcome-screen_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @extend %full-screen;
+    display: flex;
+  }
+}
+
+.screensaver .screensaver_container {
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+  z-index: 10;
+  @extend %full-screen;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform cubic-bezier(.46, -0.28, .41, 1.23) 900ms, opacity ease 600ms, background ease 300ms;
+
+  &[data-active="true"] {
+    background: rgba(0, 0, 0, 1);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  $size: 326px;
+
+  .image_container {
+    background: none;
+    padding: 0;
+    width: ($size * 1.2);
+    height: ($size * 1.2);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      position: absolute;
+      width: $size;
+      height: $size;
+      object-fit: contain;
+
+      &:not(:first-of-type) {
+        animation: pulseIcon infinite 1200ms;
+        animation-direction: alternate;
+      }
+
+      &:first-of-type() {
+        z-index: 4;
+        animation: clickPrompt infinite 1200ms;
+      }
+
+      &:nth-of-type(2) {
+        z-index: 3;
+        animation-delay: 150ms
+      }
+
+      &:nth-of-type(3) {
+        z-index: 2;
+        animation-delay: 300ms
+      }
+
+      &:nth-of-type(4) {
+        z-index: 1;
+        animation-delay: 450ms
+      }
+    }
+  }
+}
+
+.screensaver .welcome-screen_container {
+  z-index: 5;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-image: url('../img/screensaver/welcome-screen-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+
+  button {
+    width: $headerHeight !important;
+    margin: 0 ($leftMargin / 2) $headerHeight 0;
+    background: none !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: between;
+
+    >img {
+      @extend %button;
+    }
+  }
+}
+
+.launch-app-icon {
+  margin-right: 30px;
+  position: relative;
+  animation: clickPrompt 2s ease-out infinite;
+
+  &:before {
+    content: url('../img/button/button-launch-application-icon_animate.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    animation: clickPromptRipple 2s ease-out 1.5s infinite;
+  }
+}
