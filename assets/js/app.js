@@ -104,7 +104,7 @@ export const launchScreensaver = () => {
   }
 
   // @TODO: for development environment only, remove this prior to deployment to production
-  exitFullscreen()
+  // exitFullscreen()
 }
 
 /*********************************************** */
@@ -169,28 +169,27 @@ window.addEventListener('beforeunload', function (e) {
 let touchsurfaces = document.querySelectorAll('.application'),
   startX = 0,
   endX = 0,
-  threshold = 10,
-  validSwipe = false
+  threshold = 250
 
 function handleswipe(distance) {
-  var left = endX < startX
-  var right = endX > startX
-
+  var left = endX < startX && Math.abs(distance) >= threshold
+  var right = endX > startX && distance >= threshold
   if (left && !right) {
-    validSwipe = distance <= threshold
-    direction = validSwipe ? 'left' : 'tap'
+    direction = 'left'
   } else if (!left && right) {
-    validSwipe = distance >= threshold
-    direction = validSwipe ? 'right' : 'tap'
+    direction = 'right'
   } else {
     direction = 'tap'
   }
-  // console.table({
-  //   startX: startX,
-  //   endX: endX,
-  //   validSwipe: validSwipe,
-  //   direction: direction
-  // })
+  console.table({
+    startX: startX,
+    endX: endX,
+    distance: Math.abs(distance),
+    threshold: threshold,
+    distanceGTthreshold: distance >= threshold,
+    distanceLTthreshold: distance <= threshold,
+    direction: direction
+  })
   if (direction !== 'tap') {
     console.log(`valid ${direction} swipe!`)
     console.log('handle page transitions here')
@@ -230,12 +229,13 @@ function getGesturePointFromEvent(evt) {
   }
   return point.x;
 }
+
 touchsurfaces.forEach((touchsurface) => {
   touchsurface.addEventListener('pointerdown', (e) => {
     e.preventDefault()
     startX = getGesturePointFromEvent(e)
     // e.target.setPointerCapture(e.pointerId);
-    console.log('pointerdown', startX, endX)
+    console.log('pointerdown', startX, endX, e)
   }, false)
 
   touchsurface.addEventListener('pointermove', (e) => {
@@ -243,7 +243,7 @@ touchsurfaces.forEach((touchsurface) => {
     endX = getGesturePointFromEvent(e)
     console.log('pointermove', startX, endX)
   })
-  touchsurface.addEventListener('pointercancel', (e) => {
+  touchsurface.addEventListener('pointerup', (e) => {
     e.preventDefault()
     if (endX !== startX){
       handleswipe(endX - startX)
@@ -251,7 +251,6 @@ touchsurfaces.forEach((touchsurface) => {
     console.log('pointerup', startX, endX)
   })
 })
-
 
 if (menuButtons) {
   menuButtons.forEach((menuButton) => {

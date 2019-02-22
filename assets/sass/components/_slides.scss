@@ -330,6 +330,7 @@ $slideContentWidth: 1580px;
   }
 
   .slide__graphic {
+    touch-action: auto !important;
     display: block;
     overflow-y: scroll;
 

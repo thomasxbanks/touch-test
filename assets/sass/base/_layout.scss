@@ -41,4 +41,9 @@
   transform: translate(100%);
   position: absolute;
   overflow: hidden;
+  touch-action: none;
+
+  * {
+    touch-action: none;
+  }
 }
