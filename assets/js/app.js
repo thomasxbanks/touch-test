@@ -14,6 +14,7 @@ export const fullScreenButton = document.querySelector('.jsFullscreenBtn') // Th
 export const screenSaver = document.querySelector('.jsScreensaver') // The screenSaver element
 export const screenSaverTrigger = document.querySelector('.jsScreensaverTrigger') // The screenSaver element
 export const homepage = document.querySelector('article[data-name="homepage"]') // The homepage element
+export const rotationContainer = document.querySelector('.container.rotation-container') // The homepage element
 
 import {
   onSlideAnimation,
@@ -196,13 +197,19 @@ function handleswipe(distance) {
     let currentElement = document.querySelector('.slide[data-active="true"]')
     let currentID = ~~(currentElement.dataset.id)
     let id
-    if (direction === 'left') {
+    let invert = rotationContainer.classList.contains('screen-rotated')
+
+    if (!invert && direction === 'left') {
       id = (currentID + 1)
-      console.log('swiped nextSlide', currentElement, targetElement)
     }
-    if (direction === 'right') {
+    if (invert && direction === 'left') {
       id = (currentID - 1)
-      console.log('swiped prevSlide', currentElement, targetElement)
+    }
+    if (!invert && direction === 'right') {
+      id = (currentID - 1)
+    }
+    if (invert && direction === 'right') {
+      id = (currentID + 1)
     }
     let targetElement = document.querySelector(`.slide[data-id="${id}"]`)
     if (targetElement) {
