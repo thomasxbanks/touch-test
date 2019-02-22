@@ -22,7 +22,9 @@ import {
   makeElementNotActive,
   moveSlideOffRight,
 } from './navigation'
-import { screenSaverTableCountdown } from './table-screensaver';
+import {
+  screenSaverTableCountdown
+} from './table-screensaver';
 
 // require('./touch')
 require('./modal')
@@ -166,14 +168,15 @@ window.addEventListener('beforeunload', function (e) {
 });
 
 // Trigger actions for navigation
-let touchsurfaces = document.querySelectorAll('.application'),
-  startX = 0,
-  endX = 0,
+let touchsurface = document.querySelector('.jsTouchSurface'),
+  startCoords = {},
+  endCoords = {},
   threshold = 250
 
-function handleswipe(distance) {
-  var left = endX < startX && Math.abs(distance) >= threshold
-  var right = endX > startX && distance >= threshold
+function handleswipe(endCoords) {
+  let distance = Math.abs(endCoords.x - startCoords.x)
+  let left = endCoords.x < startCoords.x && distance >= threshold
+  let right = endCoords.x > startCoords.x && distance >= threshold
   if (left && !right) {
     direction = 'left'
   } else if (!left && right) {
@@ -182,17 +185,15 @@ function handleswipe(distance) {
     direction = 'tap'
   }
   console.table({
-    startX: startX,
-    endX: endX,
-    distance: Math.abs(distance),
+    startCoords: startCoords,
+    endCoords: endCoords,
+    distance: distance,
     threshold: threshold,
     distanceGTthreshold: distance >= threshold,
     distanceLTthreshold: distance <= threshold,
     direction: direction
   })
   if (direction !== 'tap') {
-    console.log(`valid ${direction} swipe!`)
-    console.log('handle page transitions here')
     let currentElement = document.querySelector('.slide[data-active="true"]')
     let currentID = ~~(currentElement.dataset.id)
     let id
@@ -216,9 +217,10 @@ function handleswipe(distance) {
     }
   }
 }
+
 function getGesturePointFromEvent(evt) {
   var point = {};
-  if(evt.targetTouches) {
+  if (evt.targetTouches) {
     // Prefer Touch Events
     point.x = evt.targetTouches[0].clientX;
     point.y = evt.targetTouches[0].clientY;
@@ -227,30 +229,28 @@ function getGesturePointFromEvent(evt) {
     point.x = evt.clientX;
     point.y = evt.clientY;
   }
-  return point.x;
+  return point;
 }
 
-touchsurfaces.forEach((touchsurface) => {
+if (touchsurface) {
   touchsurface.addEventListener('pointerdown', (e) => {
     e.preventDefault()
-    startX = getGesturePointFromEvent(e)
-    // e.target.setPointerCapture(e.pointerId);
-    console.log('pointerdown', startX, endX, e)
+    startCoords = getGesturePointFromEvent(e)
+    console.log('pointerdown', startCoords, endCoords)
   }, false)
-
+  
   touchsurface.addEventListener('pointermove', (e) => {
     e.preventDefault()
-    endX = getGesturePointFromEvent(e)
-    console.log('pointermove', startX, endX)
+    endCoords = getGesturePointFromEvent(e)
+    console.log('pointermove', startCoords, endCoords)
   })
+  
   touchsurface.addEventListener('pointerup', (e) => {
     e.preventDefault()
-    if (endX !== startX){
-      handleswipe(endX - startX)
-    }
-    console.log('pointerup', startX, endX)
+    handleswipe(endCoords)
+    console.log('pointerup', startCoords, endCoords)
   })
-})
+}
 
 if (menuButtons) {
   menuButtons.forEach((menuButton) => {
@@ -343,15 +343,3 @@ if (screenSaverTrigger) {
     onSlideAnimation(currentElement, targetElement)
   })
 }
-
-// @TODO: Remove development scirpts prior to deployment
-const randomColor = () => {
-  const colors = [
-    'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'hotpink', 'dodgerblue', 'sienna', 'tomato', 'wheat'
-  ]
-  let d = new Date()
-  let now = d.getSeconds()
-  let index = ~~(now / 6)
-  return colors[index - 1]
-}
-document.querySelector('.fullscreen-btn').style.background = randomColor()
