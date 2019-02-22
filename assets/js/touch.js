@@ -2,17 +2,25 @@ let touchsurface = document.querySelector('.application'),
   startX,
   startY,
   distance,
-  threshold = {left: -150, right: 150},
+  threshold = 1337,
   touchobj
 
 function handleswipe(distance) {
   var left = touchobj.pageX < startX
   var right = touchobj.pageX > startX
-  var direction = (left && !right) ? 'left' : 'right'
-  var validSwipe = (distance >= threshold[direction])
+  var direction, validSwipe
+  if (left && !right) {
+    direction = 'left'
+    validSwipe = distance <= threshold
+  } else if (!left && right) {
+    direction = 'right'
+    validSwipe = distance >= threshold
+  } else {
+    direction = 'tap'
+  }
   console.table({
-    touchobjPageX: touchobj.pageX,
     startX: startX,
+    touchobjPageX: touchobj.pageX,
     condition: right,
     direction: direction
   })
