@@ -1,40 +1,37 @@
 let touchsurface = document.querySelector('.application'),
   startX,
-  startY,
-  distance,
-  threshold = 1337,
-  touchobj
+  threshold = 150,
+  touchobj,
+  validSwipe
 
 function handleswipe(distance) {
   var left = touchobj.pageX < startX
   var right = touchobj.pageX > startX
-  var direction, validSwipe
+  var localDirection
+
   if (left && !right) {
-    direction = 'left'
     validSwipe = distance <= threshold
+    localDirection = validSwipe ? 'left' : 'tap'
   } else if (!left && right) {
-    direction = 'right'
     validSwipe = distance >= threshold
+    localDirection = validSwipe ? 'right' : 'tap'
   } else {
-    direction = 'tap'
+    localDirection = 'tap'
   }
   console.table({
     startX: startX,
     touchobjPageX: touchobj.pageX,
-    condition: right,
-    direction: direction
+    validSwipe: validSwipe,
+    localDirection: localDirection
   })
-  if (validSwipe) {
-    console.log(`valid ${direction} swipe!`)
-    console.log('handle page transitions here')
+  if (localDirection !== 'tap') {
+    direction = localDirection
   }
 }
 
 touchsurface.addEventListener('touchstart', function (e) {
   touchobj = e.changedTouches[0]
-  distance = 0
   startX = touchobj.pageX
-  startY = touchobj.pageY
   e.preventDefault()
 }, false)
 

@@ -2,6 +2,7 @@
 // The value is in milliseconds: 1000 === 1 second
 // @TODO: To disable for developer's sanity during development, replace `integer` with `429496729` (the longest time possible)
 export let sessionCounter, sessionDuration = 240000
+let direction
 export const slides = document.querySelectorAll('article.slide') // Array of all of the pages
 export const menuButtons = document.querySelectorAll('.jsSlideNavBtn') // Array of all menu buttons
 export const nextButton = document.querySelector('.jsNextSlide') // The "next" button
@@ -22,7 +23,7 @@ import {
 } from './navigation'
 import { screenSaverTableCountdown } from './table-screensaver';
 
-require('./touch')
+// require('./touch')
 require('./modal')
 require('./tabs')
 require('./rotate-screen')
@@ -102,7 +103,7 @@ export const launchScreensaver = () => {
   }
 
   // @TODO: for development environment only, remove this prior to deployment to production
-  // exitFullscreen()
+  exitFullscreen()
 }
 
 /*********************************************** */
@@ -164,6 +165,87 @@ window.addEventListener('beforeunload', function (e) {
 });
 
 // Trigger actions for navigation
+let touchsurfaces = document.querySelectorAll('.application'),
+  startX = 0,
+  endX = 0,
+  threshold = 10,
+  validSwipe = false
+
+function handleswipe(distance) {
+  var left = endX < startX
+  var right = endX > startX
+
+  if (left && !right) {
+    validSwipe = distance <= threshold
+    direction = validSwipe ? 'left' : 'tap'
+  } else if (!left && right) {
+    validSwipe = distance >= threshold
+    direction = validSwipe ? 'right' : 'tap'
+  } else {
+    direction = 'tap'
+  }
+  // console.table({
+  //   startX: startX,
+  //   endX: endX,
+  //   validSwipe: validSwipe,
+  //   direction: direction
+  // })
+  if (direction !== 'tap') {
+    console.log(`valid ${direction} swipe!`)
+    console.log('handle page transitions here')
+    let currentElement = document.querySelector('.slide[data-active="true"]')
+    let currentID = ~~(currentElement.dataset.id)
+    let id
+    if (direction === 'left') {
+      id = (currentID + 1)
+      console.log('swiped nextSlide', currentElement, targetElement)
+    }
+    if (direction === 'right') {
+      id = (currentID - 1)
+      console.log('swiped prevSlide', currentElement, targetElement)
+    }
+    let targetElement = document.querySelector(`.slide[data-id="${id}"]`)
+    if (targetElement) {
+      onSlideAnimation(currentElement, targetElement)
+    }
+  }
+}
+function getGesturePointFromEvent(evt) {
+  var point = {};
+  if(evt.targetTouches) {
+    // Prefer Touch Events
+    point.x = evt.targetTouches[0].clientX;
+    point.y = evt.targetTouches[0].clientY;
+  } else {
+    // Either Mouse event or Pointer Event
+    point.x = evt.clientX;
+    point.y = evt.clientY;
+  }
+  return point.x;
+}
+touchsurfaces.forEach((touchsurface) => {
+  touchsurface.addEventListener('pointerdown', (e) => {
+    e.preventDefault()
+    startX = getGesturePointFromEvent(e)
+    // e.target.setPointerCapture(e.pointerId);
+    console.log('pointerdown', startX, endX)
+  }, false)
+
+  touchsurface.addEventListener('pointermove', (e) => {
+    e.preventDefault()
+    endX = getGesturePointFromEvent(e)
+    console.log('pointermove', startX, endX)
+  })
+  touchsurface.addEventListener('pointercancel', (e) => {
+    e.preventDefault()
+    if (endX !== startX){
+      handleswipe(endX - startX)
+    }
+    console.log('pointerup', startX, endX)
+  })
+})
+
+
 if (menuButtons) {
   menuButtons.forEach((menuButton) => {
     menuButton.addEventListener('click', (e) => {

@@ -22,7 +22,7 @@ if (modalTriggerElements) {
       closeModal()
       let target = e.currentTarget.dataset.modal
       openModal(target)
-      console.log('clicked', target, targetContent)
+      console.log('clicked', target)
     })
   })
 }
